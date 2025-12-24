@@ -1,3 +1,4 @@
+package braintrainer;
 import javax.swing.*;
 import java.awt.*;
 

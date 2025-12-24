@@ -1,3 +1,5 @@
+package braintrainer;
+
 import javax.swing.*;
 
 public class SpielFenster extends JFrame {
@@ -11,9 +13,9 @@ public class SpielFenster extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
-        // Musik starten
-        musikPlayer = new MusikPlayer("musik.wav");
-        musikPlayer.playLoop();
+        musikPlayer = new MusikPlayer("/hintergrundmusik.wav");
+        musikPlayer.loop();
+        musikPlayer.volume(0.4f);
 
         zeigeHauptMenu();
         setVisible(true);
@@ -25,10 +27,16 @@ public class SpielFenster extends JFrame {
 
     public void zeigeHauptMenu() {
         wechselPanel(new HauptMenuPanel(this));
+        musikPlayer.load("/hintergrundmusik.wav");
+        musikPlayer.loop();
+        musikPlayer.volume(0.4f);
     }
 
     public void zeigeMemoryFlip() {
         wechselPanel(new MemoryFlipPanel(this));
+        musikPlayer.load("/music.wav");
+        musikPlayer.loop();
+        musikPlayer.volume(0.4f);
     }
 
     public void zeigeOddOneOut() {
@@ -47,5 +55,3 @@ public class SpielFenster extends JFrame {
         repaint();
     }
 }
-
-
